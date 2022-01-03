@@ -5,6 +5,11 @@ Use a DOM query to return a list of elements based on the class names provided.
  For each of the NodeLists returned, loop through the list and replace the text content
   with the matching type from the arrays you created*/
 
+   /*PART TWO:Write a function which allows the substitution of words based on a random selection from an array.
+    The function should be called 'getWord' and its parameter should be 'type'. 
+    Based on the type passed (that matches one of the six word classes), a random word should be returned
+     from the appropriate array of words. Use this function to update the NodeLists looped through in Part 1*/
+
   var noun = document.getElementsByClassName('noun');
   var nounList =['devil', 'thief', 'eye-patch', 'sea', 'booty', 'seadog','knife', 'beer', 'mermaid', 'deck'];
   for (var b =0; b < noun.length; b++){
@@ -46,3 +51,23 @@ for (var b = 0; b < bodyParts.length; b++) {
 var random = Math.floor(Math.random() * bodyPartsList.length);
   bodyParts[b].textContent = bodyPartsList[random];
  }
+
+ var arrays = ['noun', 'adjective', 'verb', 'adverb', 'pluralNouns', 'bodyParts'];
+
+
+var getWord = function(type) {
+  random = Math.floor(Math.random() * noun.length);
+  if (type == "noun") {
+    return nounList[random];
+  } else if (type == "adjective") {
+    return adjectiveList[random];
+  } else if (type == "verb") {
+    return verbList[random];
+  } else if (type == "adverb") {
+    return adverbList[random];
+  } else if (type == "pluralnoun") {
+    return pluralNounsList[random];
+  } else if (type == "bodyparts") {
+    return bodyPartsList[random];
+  }
+}
